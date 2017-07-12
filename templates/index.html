@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Registration</title>
+</head>
+<body>
+  {{ session['error'] }}
+  {% if (session['reqs'] == 1): %}
+  <p>Please insure your credentials meet the following requirements:</p>
+    <ul>
+      <li>First Name - letters only, at least 2 characters and that it was submitted</li>
+      <li>Last Name - letters only, at least 2 characters and that it was submitted</li>
+      <li>Email - Valid Email format, and that it was submitted</li>
+      <li>Password - at least 8 characters, and that it was submitted</li>
+      <li>Password Confirmation - matches password</li>
+    </ul>
+  {% else: %}
+  {% endif %}
+  <h1>Register</h1>
+  <form action='/register' method='POST'>
+    <label for="first_name">First Name: <input type="text" name="first_name" id="first_name"></label>
+    <label for="last_name">Last Name: <input type="text" name="last_name" id="last_name"></label>
+    <label for="email">Email: <input type="text" name="email" id="email"></label>
+    <label for="password">Password: <input type="text" name="password" id="password"></label>
+    <label for="confirm_password">Confirm Password: <input type="text" name="confirm_password" id="confirm_password"></label>
+    <input type="submit" value="Register">
+  </form>
+  <h1>Login</h1>
+  <form action='/login' method='POST'>
+    <label for="email">Email: <input type="text" name="email" id="email"></label>
+    <label for="password">Password: <input type="text" name="password" id="password"></label>
+    <input type="submit" value="Login">
+  </form>
+  <a href='/success' method='GET'><button type="">GO TO SUCCESS PAGE</button></a>
+  {% if (session['name'] != None) and (session['name'] != ""): %}
+    <a href='/logout' method='GET'><button type="">LOGOUT</button></a>
+  {% else: %}
+  {% endif %}
+</body>
+</html>

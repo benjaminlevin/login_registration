@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Successful Login</title>
+</head>
+<body>
+  <h1>Successful Login</h1>
+  <h2>Edit User Information</h2>
+  <form action='/user/{{ user['id'] }}' method='POST'>
+    <label for="first_name">First Name: <input type="text" name="first_name" id="first_name" value={{user['first_name']}}></label>
+    <label for="last_name">Last Name: <input type="text" name="last_name" id="last_name" value={{user['last_name']}}></label>
+    <label for="email">Email: <input type="text" name="email" id="email" value={{user['email']}}></label>
+    <input type="submit" value="Update">
+  </form>
+<a href="/logout"><button type="">LOGOUT</button></a>
+</body>
+</html>
